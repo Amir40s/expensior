@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "737365457851",
+    "project_id": "expensior-e1bac",
+    "storage_bucket": "expensior-e1bac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737365457851:android:02cced392f065cb105e29e",
+        "android_client_info": {
+          "package_name": "com.technogenis.expensior"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn49HJ4fALgcARgYtvwVJbJ5pRStms5cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

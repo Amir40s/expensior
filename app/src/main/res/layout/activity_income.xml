@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    tools:context=".home.IncomeActivity">
+
+
+    <include
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        layout="@layout/back_layout"
+        android:layout_alignParentTop="true"
+        />
+
+
+    <include
+        android:id="@+id/include_dateField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/income_datafield_layout"
+        android:layout_below="@+id/top_layout"
+        />
+
+
+    <include
+        android:id="@+id/include_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/income_bottom_layout"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="3dp"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content"
+    >
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:padding="5dp"
+       >
+       <TableLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:weightSum="3"
+           >
+
+           <TableRow>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_weight="1"
+                   >
+                   <TextView
+                       android:id="@+id/tv_date"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="12 Nov"
+                       android:textColor="@color/black"
+                       android:textAlignment="center"
+                       android:padding="3dp"
+                       android:textSize="12sp"
+                       />
+
+                   <TextView
+                       android:id="@+id/tv_time"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="4pm"
+                       android:textColor="@color/black"
+                       android:textAlignment="center"
+                       android:padding="3dp"
+                       android:textSize="12sp"
+                       />
+
+                   <TextView
+                       android:id="@+id/tv_paymentMethod"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="UBL"
+                       android:textColor="@color/black"
+                       android:textAlignment="center"
+                       android:padding="3dp"
+                       android:textSize="12sp"
+                       android:layout_margin="5dp"
+                       android:background="@drawable/text_background"
+                       />
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_weight="1"
+                   >
+                   <TextView
+                       android:id="@+id/tv_category"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Category"
+                       android:textColor="@color/black"
+                       android:textAlignment="center"
+                       android:padding="3dp"
+                       android:textSize="12sp"
+                       />
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_weight="1">
+                   <TextView
+                       android:id="@+id/tv_amount"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Amount"
+                       android:textColor="@color/black"
+                       android:textAlignment="center"
+                       android:padding="3dp"
+                       android:textSize="12sp"
+                       />
+               </LinearLayout>
+
+           </TableRow>
+
+       </TableLayout>
+
+       <TextView
+           android:id="@+id/tv_notes"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Notes: nsadj hgas "
+           android:textColor="@color/black"
+           android:padding="3dp"
+           android:textSize="12sp"
+           />
+   </LinearLayout>
+
+</androidx.cardview.widget.CardView>

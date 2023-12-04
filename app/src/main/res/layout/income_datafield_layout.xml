@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/input_background"
+        android:padding="5dp"
+        >
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Income"
+            android:textSize="14sp"
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+
+        <EditText
+            android:id="@+id/ed_income"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_input_background"
+            android:hint="Enter Income"
+            android:textSize="14sp"
+            android:drawableStart="@drawable/ic_income"
+            android:drawablePadding="10dp"
+            android:inputType="number"
+            android:drawableTint="@color/mainColor"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/input_background"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_input_background"
+            android:hint="select category"
+            android:textSize="12sp"
+            android:drawableStart="@drawable/ic_category"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/mainColor"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/input_background"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Payment Method"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_paymentMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_input_background"
+            android:hint="select payment method"
+            android:textSize="12sp"
+            android:drawableStart="@drawable/ic_wallet"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/mainColor"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/input_background"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notes (optional)"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+
+        <EditText
+            android:id="@+id/tv_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_input_background"
+            android:hint="Enter Notes.."
+            android:textSize="12sp"
+            android:drawableStart="@drawable/ic_chat"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/mainColor"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:weightSum="3"
+        >
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_background"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:gravity="center|start"
+            android:layout_marginRight="3dp"
+            android:text="Select date"
+            android:drawableEnd="@drawable/ic_date"
+            android:drawableTint="@color/mainColor"
+            />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_background"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:gravity="center|start"
+            android:layout_marginLeft="4dp"
+            android:text="Select Time"
+            android:drawableEnd="@drawable/ic_time"
+            android:drawableTint="@color/mainColor"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
