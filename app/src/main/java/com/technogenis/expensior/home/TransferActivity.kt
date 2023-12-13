@@ -131,17 +131,17 @@ class TransferActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener
                 {
                     val document = snapShot.result
 
-                    if (document.contains("income"))
+                    if (document.contains("income${currentDateTime.getCurrentMonth().toString().lowercase()}"))
                     {
                         expenseFound = true
                     }
-                    if (document.contains("expense"))
+                    if (document.contains("expense${currentDateTime.getCurrentMonth().toString().lowercase()}"))
                     {
                         expenseFound = true
                     }
-                    if (document.contains("transfer"))
+                    if (document.contains("transfer${currentDateTime.getCurrentMonth().toString().lowercase()}"))
                     {
-                        transferData =  document.get("transfer").toString()
+                        transferData =  document.get("transfer${currentDateTime.getCurrentMonth().toString().lowercase()}").toString()
                         transferStatus = true
                         transfer = (transferData.toInt() + amount!!.toInt()).toString()
                     }else{
@@ -172,7 +172,7 @@ class TransferActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener
 
    fun saveFirestoreData(transfer: String){
        val map = hashMapOf<String, Any>(
-           "transfer" to transfer
+           "transfer${currentDateTime.getCurrentMonth().toString().lowercase()}" to transfer
        )
        firestore.collection(collections.userIncome)
            .document(userUID)
@@ -186,7 +186,7 @@ class TransferActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener
 
     fun updateData(transfer: String){
         val map = hashMapOf<String, Any>(
-            "transfer" to transfer
+            "transfer${currentDateTime.getCurrentMonth().toString().lowercase()}" to transfer
         )
         firestore.collection(collections.userIncome)
             .document(userUID)
@@ -209,7 +209,8 @@ class TransferActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener
             "time" to time,
             "toBank" to to,
             "fromBank" to from,
-            "notes" to notes
+            "notes" to notes,
+            "month" to currentDateTime.getCurrentMonth().toString().lowercase()
         )
 
         firestore.collection(collections.userIncome)

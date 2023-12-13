@@ -6,6 +6,7 @@
     >
 
     <TextView
+        android:id="@+id/tv_month"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="November"
@@ -14,6 +15,7 @@
         android:padding="3dp"
         android:background="@drawable/text_background"
         />
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

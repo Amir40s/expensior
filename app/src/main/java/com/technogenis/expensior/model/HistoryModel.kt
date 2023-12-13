@@ -8,4 +8,5 @@ class HistoryModel {
     var paymentMethod : String ?=null
     var time : String ?=null
     var amount : String ?=null
+    var month : String ?=null
 }

@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Expensior"
         tools:targetApi="31">
         <activity
+            android:name=".home.DailyBudgetActivity"
+            android:exported="false" />
+        <activity
             android:name=".home.TransectionActivity"
             android:exported="false" />
         <activity

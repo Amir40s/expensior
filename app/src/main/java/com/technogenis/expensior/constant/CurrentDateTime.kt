@@ -14,4 +14,7 @@ class CurrentDateTime constructor(context: Context) {
     fun getCurrentDate(): String? {
         return SimpleDateFormat("dd/LLL/yyyy", Locale.getDefault()).format(Date())
     }
+    fun getCurrentMonth() : String?{
+        return SimpleDateFormat("MMMM", Locale.getDefault()).format(Date())
+    }
 }

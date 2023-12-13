@@ -14,8 +14,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.technogenis.expensior.constant.Collections
 import com.technogenis.expensior.databinding.ActivityMainBinding
+import com.technogenis.expensior.fragment.FAQFragment
 import com.technogenis.expensior.fragment.HomeFragment
 import com.technogenis.expensior.fragment.ProfileFragment
+import com.technogenis.expensior.fragment.SettingFragment
 import com.technogenis.expensior.home.ExpenseHistoryActivity
 import com.technogenis.expensior.start.LoginActivity
 
@@ -69,8 +71,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 moveToNext(Collections().userExpenseDetails)
             }
             R.id.nav_credit ->  moveToNext(Collections().userIncomeDetails)
+            R.id.nav_settings -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, SettingFragment()).commit()
             R.id.nav_chat -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment()).commit()
+                .replace(R.id.fragment_container, FAQFragment()).commit()
             R.id.nav_logout -> signOut()
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

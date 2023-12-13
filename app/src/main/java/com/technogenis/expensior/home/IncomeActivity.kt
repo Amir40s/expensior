@@ -66,6 +66,7 @@ class IncomeActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         super.onCreate(savedInstanceState)
         binding = ActivityIncomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         bottomSheetTaskModel = ViewModelProvider(this)[ViewTaskModel::class.java]
 
         firebaseAuth = Firebase.auth
@@ -147,8 +148,8 @@ class IncomeActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                 if (snapShot.isSuccessful)
                 {
                     val document = snapShot.result
-                    if (document.contains("income")) {
-                        incomeData =  document.get("income").toString()
+                    if (document.contains("income${currentDateTime.getCurrentMonth().toString().lowercase(Locale.ROOT)}")) {
+                        incomeData =  document.get("income${currentDateTime.getCurrentMonth().toString().lowercase(Locale.ROOT)}").toString()
                         income = (incomeData.toInt() + income.toInt()).toString()
                         incomeStatus = true
                     }else{
@@ -156,8 +157,8 @@ class IncomeActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                         incomeStatus = false
                         income = (incomeData.toInt() + income.toInt()).toString()
                     }
-                    if (document.contains("expense")) {
-                        expenseData =  document.get("expense").toString()
+                    if (document.contains("expense${currentDateTime.getCurrentMonth().toString().lowercase(Locale.ROOT)}")) {
+                        expenseData =  document.get("expense${currentDateTime.getCurrentMonth().toString().lowercase(Locale.ROOT)}").toString()
                         expense = (expenseData.toInt() + expense.toInt()).toString()
                         expenseStatus = true
                     }else{
@@ -177,7 +178,7 @@ class IncomeActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 
        if (activityName == "income") {
            val map = hashMapOf<String,Any>(
-               "income" to income,
+               "income${currentDateTime.getCurrentMonth().toString().lowercase(Locale.ROOT)}" to income,
            )
            if (incomeStatus) {
                firestore.collection(collections.userIncome)
@@ -212,7 +213,7 @@ class IncomeActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
        }
         if (activityName == "expense"){
             val map = hashMapOf<String,Any>(
-                "expense" to expense,
+                "expense${currentDateTime.getCurrentMonth().toString().lowercase(Locale.ROOT)}" to expense,
             )
             if (expenseStatus) {
                 firestore.collection(collections.userIncome)
@@ -272,7 +273,8 @@ class IncomeActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
             "time" to time,
             "category" to category,
             "paymentMethod" to paymentMethod,
-            "notes" to notes
+            "notes" to notes,
+            "month" to currentDateTime.getCurrentMonth().toString()
         )
 
         firestore.collection(collections.userIncome)

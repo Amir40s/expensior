@@ -15,4 +15,25 @@
     <string name="sign_in">Sign In</string>
     <string name="dont_account">Don\'t have an account</string>
     <string name="complete_profile">Complete Your Profile</string>
+
+    <string name="ques_1">1. Transaction Tracking?</string>
+    <string name="ques_2">2. Budgeting Tools?</string>
+
+    <string name="ans_1">The app allows users to input and categorize their transactions, including details like date, amount, and vendor. This helps users maintain a comprehensive record of their expenses</string>
+    <string name="ans_2">Users can set budget limits for different spending categories. The app then provides real-time updates on spending against these budgets, helping users stay within their financial goals</string>
+
+    <string name="selected_item">selected</string>
+    <string-array name="Month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

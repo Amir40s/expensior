@@ -29,7 +29,7 @@ import com.technogenis.expensior.model.HistoryModel
          holder.category.text = history.category.toString()
          holder.paymentMethod.text = history.paymentMethod
          holder.amount.text = "${Collections().poundSymbol} ${history.amount}"
-         holder.time.text = history.time
+         holder.time.text = "${history.time} | ${history.month}"
          holder.notes.text = "Notes: ${history.notes}"
 
      }

@@ -16,11 +16,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.technogenis.expensior.R
+import com.technogenis.expensior.constant.CurrentDateTime
 import com.technogenis.expensior.databinding.FragmentHomeBinding
+import com.technogenis.expensior.home.DailyBudgetActivity
 import com.technogenis.expensior.home.ExpenseHistoryActivity
 import com.technogenis.expensior.home.IncomeActivity
 import com.technogenis.expensior.home.TransectionActivity
 import com.technogenis.expensior.home.TransferActivity
+import java.util.Locale
 
 
 class HomeFragment : Fragment() {
@@ -32,6 +35,7 @@ class HomeFragment : Fragment() {
     private lateinit var userUID : String
     private lateinit var income : String
     private lateinit var expense : String
+    private lateinit var currentDateTime : CurrentDateTime
     private  var balance : Int = 0
     private var fabVisible = false
 
@@ -50,6 +54,8 @@ class HomeFragment : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
         userUID = firebaseAuth.uid.toString()
+
+        currentDateTime = activity?.let { CurrentDateTime(it) }!!
 
         // functions
         imageSlider()
@@ -75,6 +81,7 @@ class HomeFragment : Fragment() {
             moveToActivity("expense")
         }
 
+        // Transaction button to move to Transaction activity
         binding.transactionCard.setOnClickListener {
             val intent = Intent(activity,TransectionActivity::class.java)
             startActivity(intent)
@@ -85,6 +92,12 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity,TransferActivity::class.java)
             startActivity(intent)
         }
+
+        // Daily Budget button to move to Daily Budget activity
+        binding.dailyBudgetCard.setOnClickListener {
+            startActivity(Intent(activity,DailyBudgetActivity::class.java))
+        }
+
         return binding.root
     }
 
@@ -93,7 +106,6 @@ class HomeFragment : Fragment() {
         intent.putExtra("activityName",activityName)
         startActivity(intent)
     }
-
     // function to get values from firebaseFirestore database
     private fun getValues() {
         firebaseFirestore.collection("userExpense")
@@ -103,14 +115,14 @@ class HomeFragment : Fragment() {
                 if (task.isSuccessful){
                     val snapshot = task.result
 
-                    income = if (snapshot.contains("income")) {
-                        snapshot.get("income").toString()
+                    income = if (snapshot.contains("income${currentDateTime?.getCurrentMonth().toString().lowercase(Locale.ROOT)}")) {
+                        snapshot.get("income${currentDateTime?.getCurrentMonth().toString().lowercase(Locale.ROOT)}").toString()
                     }else{
                         "0"
                     }
 
-                    expense = if (snapshot.contains("expense")) {
-                        snapshot.get("expense").toString()
+                    expense = if (snapshot.contains("expense${currentDateTime?.getCurrentMonth().toString().lowercase(Locale.ROOT)}")) {
+                        snapshot.get("expense${currentDateTime?.getCurrentMonth().toString().lowercase(Locale.ROOT)}").toString()
                     }else{
                         "0"
                     }
@@ -119,6 +131,7 @@ class HomeFragment : Fragment() {
                     binding.detailsInclude.tvIncome.text = income
                     binding.detailsInclude.tvExpense.text = expense
                     binding.detailsInclude.tvBalance.text = balance.toString()
+                    binding.detailsInclude.tvMonth.text = currentDateTime.getCurrentMonth().toString()
                 }
             }
     }
